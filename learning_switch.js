@@ -1,3 +1,4 @@
+
 function caseInSwitch(val) {
     let answer = "";
     // Only change code below this line
