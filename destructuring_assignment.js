@@ -8,4 +8,4 @@ const HIGH_TEMPERATURES = {
 // const highToday = HIGH_TEMPERATURES.today;
 // const highTomorrow = HIGH_TEMPERATURES.tomorrow;
 
-const { highToday: today, highTomorrow: tomorrow } = HIGH_TEMPERATURES;
+const { today: highToday, tomorrow: highTomorrow } = HIGH_TEMPERATURES;
