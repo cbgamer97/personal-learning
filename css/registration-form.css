@@ -8,6 +8,21 @@ body {
     font-size: 16px;
 }
 
+.radio-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header{
+    background-image: url("https://pixabay.com/get/gad007fd4f7c6acbfa84ec0d54288130fb82caa65f6fa481d169d96864ea60c9282a02b21542af81a73d33296866874075344387ac17605889ed17592ce35ca9db84b572a4664224d60c2144cda83ec27_1280.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
 h1, p {
     margin: 1em auto;
     text-align: center;
