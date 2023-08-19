@@ -1,4 +1,6 @@
 function checkCashRegister(price, cash, cid) {
+
+    // Create an array of currency units
     const currencyUnits = [
         ["PENNY", 0.01],
         ["NICKEL", 0.05],
@@ -11,6 +13,7 @@ function checkCashRegister(price, cash, cid) {
         ["ONE HUNDRED", 100]
     ];
 
+    // Calculate the change due
     const changeDue = cash - price;
     let totalCID = 0;
     for (let i = 0; i < cid.length; i++) {
@@ -18,6 +21,7 @@ function checkCashRegister(price, cash, cid) {
     }
     totalCID = parseFloat(totalCID.toFixed(2));
 
+    // Check if there is enough cash in the drawer
     if (totalCID < changeDue) {
         return { status: "INSUFFICIENT_FUNDS", change: [] };
     } else if (totalCID === changeDue) {
@@ -26,12 +30,14 @@ function checkCashRegister(price, cash, cid) {
         const changeArray = [];
         let remainingChange = changeDue;
 
+        // Loop through the currency units
         for (let i = currencyUnits.length - 1; i >= 0; i--) {
             const currencyName = currencyUnits[i][0];
             const currencyValue = currencyUnits[i][1];
             const availableCurrency = cid[i][1];
             const maxCurrencyToUse = Math.floor(availableCurrency / currencyValue) * currencyValue;
 
+            // If the currency unit is less than or equal to the remaining change and there is enough of the currency unit available
             if (remainingChange >= currencyValue && maxCurrencyToUse > 0) {
                 const usedCurrency = Math.min(remainingChange, maxCurrencyToUse);
                 remainingChange -= usedCurrency;
@@ -41,6 +47,7 @@ function checkCashRegister(price, cash, cid) {
         }
         console.log(changeArray)
 
+        // If there is still change left over, return INSUFFICIENT_FUNDS
         if (remainingChange > 0) {
             console.log(remainingChange)
             return {
